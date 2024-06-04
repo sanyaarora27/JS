@@ -8,25 +8,25 @@ EASY QUESTIONS
   join()-> returns an array as a strng and does not the change the original array.
 
 
-function isAnagram(str1, str2) {
-  let len1 = str1.length;
-  let len2 = str2.length;
-  if (len1 !== len2) {
-    console.log("False");
-    return;
-  }
-  let s = str1.split("").sort().join("");
-  let t = str2.split("").sort().join("");
-  if (s === t) {
-    console.log("True");
-  } else {
-    console.log("False");
-  }
-}
-
-isAnagram("sanya", "anas")
-
-module.exports = isAnagram;
+                              function isAnagram(str1, str2) {
+                                let len1 = str1.length;
+                                let len2 = str2.length;
+                                if (len1 !== len2) {
+                                  console.log("False");
+                                  return;
+                                }
+                                let s = str1.split("").sort().join("");
+                                let t = str2.split("").sort().join("");
+                                if (s === t) {
+                                  console.log("True");
+                                } else {
+                                  console.log("False");
+                                }
+                              }
+                              
+                              isAnagram("sanya", "anas")
+                              
+                              module.exports = isAnagram;
 
 
 
@@ -40,55 +40,215 @@ module.exports = isAnagram;
   - Output: 9
 */
 
-1. Brute force approach 
+                            1. Brute force approach 
+                            
+                            function findLargestElement(arr) {
+                                if (arr.length === 0) {
+                                    throw new Error("Array is empty");
+                                }
+                            
+                                let largest = arr[0];
+                                
+                                for (let i = 1; i < arr.length; i++) {
+                                    if (arr[i] > largest) {
+                                        largest = arr[i];
+                                    }
+                                }
+                                
+                                return largest;
+                            }
+                            
+                            // Example usage
+                            console.log(findLargestElement([3, 7, 2, 9, 1])); // Output: 9
+                            
+                            
+                            module.exports = findLargestElement;
+                            
+                            
+                            
+                            
+                            2. Using 'Math.max' and Spread operator
+                            
+                            function findLargestElement(arr) {
+                                if (arr.length === 0) {
+                                    throw new Error("Array is empty");
+                                }
+                                return Math.max(...arr);
+                            }
+                            
+                            // Example usage
+                            console.log(findLargestElement([3, 7, 2, 9, 1])); // Output: 9
+                            
+                            
+                            3. Using 'reduce' method
+                            
+                            function findLargestElement(arr) {
+                                if (arr.length === 0) {
+                                    throw new Error("Array is empty");
+                                }
+                                return arr.reduce((max, current) => current > max ? current : max, arr[0]);
+                            }
+                            
+                            // Example usage
+                            console.log(findLargestElement([3, 7, 2, 9, 1])); // Output: 9
 
-function findLargestElement(arr) {
-    if (arr.length === 0) {
-        throw new Error("Array is empty");
-    }
 
-    let largest = arr[0];
-    
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[i] > largest) {
-            largest = arr[i];
-        }
-    }
-    
-    return largest;
+
+/*
+  Implement a function `calculateTotalSpentByCategory` which takes a list of transactions as parameter
+  and return a list of objects where each object is unique category-wise and has total price spent as its value.
+  transactions is an array where each
+  Transaction - an object like 
+        {
+		id: 1,
+		timestamp: 1656076800000,
+		price: 10,
+		category: 'Food',
+		itemName: 'Pizza',
+	}
+  Output - [{ category: 'Food', totalSpent: 10 }] // Can have multiple categories, only one example is mentioned here
+*/
+
+function calculateTotalSpentByCategory(transactions) {
+  return [];
 }
 
-// Example usage
-console.log(findLargestElement([3, 7, 2, 9, 1])); // Output: 9
-
-
-module.exports = findLargestElement;
+module.exports = calculateTotalSpentByCategory;
 
 
 
+                          function calculateTotalSpentByCategory(transactions) {
+                            const totalsByCategory = {};
+                          
+                            transactions.forEach(({ category, price }) => {
+                              if (totalsByCategory[category]) {
+                                totalsByCategory[category] += price;
+                              } else {
+                                totalsByCategory[category] = price;
+                              }
+                            });
+                          
+                            return Object.keys(totalsByCategory).map(category => ({
+                              category,
+                              totalSpent: totalsByCategory[category]
+                            }));
+                          }
+                          
+                          // array of objects
+                          const transactions = [
+                            { id: 1, timestamp: 1656076800000, price: 10, category: 'Food', itemName: 'Pizza' },
+                            { id: 2, timestamp: 1656080400000, price: 5, category: 'Food', itemName: 'Burger' },
+                            { id: 3, timestamp: 1656084000000, price: 15, category: 'Transport', itemName: 'Bus Ticket' },
+                            { id: 4, timestamp: 1656087600000, price: 20, category: 'Food', itemName: 'Steak' },
+                            { id: 5, timestamp: 1656091200000, price: 10, category: 'Entertainment', itemName: 'Movie Ticket' }
+                          ];
+                          
+                          console.log(calculateTotalSpentByCategory(transactions));
+                          
 
-2. Using 'Math.max' and Spread operator
 
-function findLargestElement(arr) {
-    if (arr.length === 0) {
-        throw new Error("Array is empty");
-    }
-    return Math.max(...arr);
+                        OUTPUT:=  [
+                                    { category: 'Food', totalSpent: 35 },
+                                    { category: 'Transport', totalSpent: 15 },
+                                    { category: 'Entertainment', totalSpent: 10 }
+                                  ]
+
+
+
+
+MEDIUM QUESTIONS
+
+1. /*
+  Implement a function `countVowels` that takes a string as an argument and returns the number of vowels in the string.
+  Note: Consider both uppercase and lowercase vowels ('a', 'e', 'i', 'o', 'u').
+
+  Once you've implemented the logic, test your code by running
+*/
+
+function countVowels(str) {
+    // Your code here
 }
 
-// Example usage
-console.log(findLargestElement([3, 7, 2, 9, 1])); // Output: 9
+module.exports = countVowels;
 
 
-3. Using 'reduce' method
 
-function findLargestElement(arr) {
-    if (arr.length === 0) {
-        throw new Error("Array is empty");
-    }
-    return arr.reduce((max, current) => current > max ? current : max, arr[0]);
+
+
+2. /*
+  Implement a function `isPalindrome` which takes a string as argument and returns true/false as its result.
+  Note: the input string is case-insensitive which means 'Nan' is a palindrom as 'N' and 'n' are considered case-insensitive.
+*/
+
+function isPalindrome(str) {
+  return true;
 }
 
-// Example usage
-console.log(findLargestElement([3, 7, 2, 9, 1])); // Output: 9
+module.exports = isPalindrome;
 
+
+3. /*
+Write a function that calculates the time (in seconds) it takes for the JS code to calculate sum from 1 to n, given n as the input.
+Try running it for
+1. Sum from 1-100
+2. Sum from 1-100000
+3. Sum from 1-1000000000
+Hint - use Date class exposed in JS
+There is no automated test for this one, this is more for you to understand time goes up as computation goes up
+*/
+
+function calculateTime(n) {
+    return 0.01;
+}
+
+
+
+
+HARD QUESTIONS
+
+1. 
+/*
+  Implement a class `Calculator` having below methods
+    - initialise a result variable in the constructor and keep updating it after every arithmetic operation
+    - add: takes a number and adds it to the result
+    - subtract: takes a number and subtracts it from the result
+    - multiply: takes a number and multiply it to the result
+    - divide: takes a number and divide it to the result
+    - clear: makes the `result` variable to 0
+    - getResult: returns the value of `result` variable
+    - calculate: takes a string expression which can take multi-arithmetic operations and give its result
+      example input: `10 +   2 *    (   6 - (4 + 1) / 2) + 7`
+      Points to Note: 
+        1. the input can have multiple continuous spaces, you're supposed to avoid them and parse the expression correctly
+        2. the input can have invalid non-numerical characters like `5 + abc`, you're supposed to throw error for such inputs
+
+  Once you've implemented the logic, test your code by running
+*/
+
+class Calculator {}
+
+module.exports = Calculator;
+
+
+
+
+
+
+
+2. /*
+  Implement a class `Todo` having below methods
+    - add(todo): adds todo to list of todos
+    - remove(indexOfTodo): remove todo from list of todos
+    - update(index, updatedTodo): update todo at given index
+    - getAll: returns all todos
+    - get(indexOfTodo): returns todo at given index
+    - clear: deletes all todos
+
+  Once you've implemented the logic, test your code by running
+*/
+
+class Todo {
+
+}
+
+module.exports = Todo;
