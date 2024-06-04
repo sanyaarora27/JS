@@ -1,0 +1,29 @@
+EASY QUESTIONS
+
+
+1. Anagram
+  function will return whether the string is an anagram or not.
+  split() splits a string into an array of substrings, and returns the array.
+  sort()-> sort an array/string alphabetically.
+  join()-> returns an array as a strng and does not the change the original array.
+
+
+function isAnagram(str1, str2) {
+  let len1 = str1.length;
+  let len2 = str2.length;
+  if (len1 !== len2) {
+    console.log("False");
+    return;
+  }
+  let s = str1.split("").sort().join("");
+  let t = str2.split("").sort().join("");
+  if (s === t) {
+    console.log("True");
+  } else {
+    console.log("False");
+  }
+}
+
+isAnagram("sanya", "anas")
+
+module.exports = isAnagram;
